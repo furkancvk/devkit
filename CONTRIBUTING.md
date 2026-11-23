@@ -1,6 +1,6 @@
 # Contributing
 
-Changes reach `main` only through a pull request. Direct pushes are blocked.
+Changes reach `main` only through a pull request with green CI and one approving review. Direct pushes are blocked for everyone, including maintainers.
 
 1. Fork or branch, and keep the change to one concern.
 2. Run the tests: `python -m unittest discover -s tests -v`. They use the standard library only and must pass on Windows, macOS and Linux; CI runs all three.
