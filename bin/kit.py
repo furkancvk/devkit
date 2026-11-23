@@ -134,7 +134,9 @@ def fix_gitignore(repo: Path) -> str | None:
     for line in raw.splitlines():
         if line.strip() in IGNORES_EVERYTHING:
             if not changed:
-                lines.extend(GITIGNORE_BLOCK)
+                # Keep the repository's own comment when the rule already has one.
+                has_comment = bool(lines) and lines[-1].lstrip().startswith("#")
+                lines.extend(GITIGNORE_BLOCK[1:] if has_comment else GITIGNORE_BLOCK)
                 changed = True
             continue
         lines.append(line)

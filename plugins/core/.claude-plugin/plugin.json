@@ -1,7 +1,7 @@
 {
   "name": "core",
   "description": "Core skills: grill-me, grilling, handoff, fable-orchestration, repo-setup, and a session-start hook that shows the repository's progress notes.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": {
     "name": "devkit contributors"
