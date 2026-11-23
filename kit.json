@@ -1,0 +1,11 @@
+{
+  "marketplace": "devkit",
+  "source": {
+    "source": "github",
+    "repo": "furkancvk/devkit"
+  },
+  "default_packages": [
+    "core",
+    "superpowers"
+  ]
+}

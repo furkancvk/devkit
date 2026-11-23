@@ -1,0 +1,27 @@
+{
+  "name": "devkit",
+  "owner": { "name": "devkit contributors" },
+  "description": "A small, opinionated kit for building software with Claude Code: process skills, a delegation policy that keeps token use down, repository setup, and third-party plugins pinned to a commit.",
+  "plugins": [
+    {
+      "name": "core",
+      "description": "On in every repository: grill-me, grilling, handoff, fable-orchestration, repo-setup, and a session-start hook that shows the repository's progress notes.",
+      "source": "./plugins/core"
+    },
+    {
+      "name": "ui",
+      "description": "For repositories with a user interface: frontend-design, webapp-testing.",
+      "source": "./plugins/ui"
+    },
+    {
+      "name": "superpowers",
+      "description": "obra/superpowers v7.0.2, pinned to a commit. Process skills and the session-start skill check.",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/obra/superpowers.git",
+        "sha": "22f0b463e7a5e579904dd6211a520321035526f7"
+      },
+      "homepage": "https://github.com/obra/superpowers"
+    }
+  ]
+}

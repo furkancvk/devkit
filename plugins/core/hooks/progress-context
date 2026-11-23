@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# SessionStart hook: prints the top of docs/PROGRESS.md so every session starts
+# knowing where the repository stands. Prints nothing when the file is absent.
+#
+# Runs on Windows (Git Bash), macOS and Linux through run-hook.cmd. It uses
+# shell builtins only, because the harness can start hooks with an empty PATH.
+# The file name has no extension on purpose: on Windows, Claude Code prepends
+# "bash" to commands that contain ".sh".
+file="${CLAUDE_PROJECT_DIR:-$PWD}/docs/PROGRESS.md"
+[ -f "$file" ] || exit 0
+trap '' PIPE
+{
+  printf '%s\n\n' "Current state of this repository, from the top of docs/PROGRESS.md. Read the file for the rest, and update it when a meaningful piece of work is finished."
+  lines=0
+  chars=0
+  while IFS= read -r line || [ -n "$line" ]; do
+    lines=$((lines + 1))
+    chars=$((chars + ${#line} + 1))
+    if [ "$lines" -gt 80 ] || [ "$chars" -gt 4000 ]; then
+      break
+    fi
+    printf '%s\n' "$line"
+  done < "$file"
+} 2>/dev/null || true
+exit 0
