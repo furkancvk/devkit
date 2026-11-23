@@ -1,6 +1,15 @@
 # Changelog
 
-## 0.1.0 (not released yet)
+## core 0.1.1 (2026-11-23)
+
+Findings from the first run of `repo-setup` on a real repository (a .NET, React and Expo monolith):
+
+- `repo-setup` now checks statements from READMEs and status notes against the repository before copying them; the first run carried over a folder and a branch description that no longer existed.
+- The verify step says what to do in a repository with several packages or stacks.
+- The secret-file step also denies the usual untracked names (`.env`, `.env.local`) when absent, never denies tracked non-secret configuration, and prints the rules when editing the settings file is refused.
+- `kit.py plug` no longer adds a second comment line when the `.claude/` ignore rule it replaces already has one above it.
+
+## 0.1.0 (2026-11-23)
 
 - Packages: `core` (grill-me, grilling, handoff, fable-orchestration, repo-setup, session-start progress hook), `ui` (frontend-design, webapp-testing), and `superpowers` v7.0.2 pinned to a commit.
 - `bin/kit.py`: plug, unplug, status, install. Touches only `.claude/settings.json` and, when needed, `.gitignore`; never commits.

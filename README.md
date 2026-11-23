@@ -77,7 +77,7 @@ Open Claude Code inside the repository, not in a parent folder: a session starte
 
 ## Platforms
 
-Written for Windows, macOS and Linux. The test suite runs on all three in CI (`.github/workflows/test.yml`), on Python 3.9 and 3.13, and covers `kit.py`, the hook and the manifests. End-to-end sessions with Claude Code have been run on Linux only; reports from Windows and macOS are welcome.
+Written for Windows, macOS and Linux. The test suite runs on all three in CI (`.github/workflows/test.yml`), on Python 3.9 and 3.13, and covers `kit.py`, the hook and the manifests. End-to-end sessions with Claude Code have been run on Linux only, and `repo-setup` has been run on one real repository so far (a .NET, React and Expo monolith); reports from Windows, macOS and other stacks are welcome.
 
 On Windows the hook runs through `run-hook.cmd`, which finds the bash that ships with Git for Windows. If no bash is found the hook is skipped silently and the rest of the kit works.
 

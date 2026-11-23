@@ -118,6 +118,13 @@ class GitignoreTests(RepoCase):
         self.assertIn(b"\r\n", raw)
         self.assertNotIn(b"\n", raw.replace(b"\r\n", b""))
 
+    def test_existing_comment_above_the_rule_is_kept_and_not_doubled(self) -> None:
+        (self.repo / ".gitignore").write_text("dist/\n# local agent files\n.claude/\n", encoding="utf-8")
+        run_kit("plug", str(self.repo), "--source", self.source)
+        lines = (self.repo / ".gitignore").read_text(encoding="utf-8").splitlines()
+        self.assertEqual(lines[1:3], ["# local agent files", "**/.claude/*"])
+        self.assertFalse(self.ignored(".claude/settings.json"))
+
     def test_gitignore_untouched_when_settings_not_ignored(self) -> None:
         (self.repo / ".gitignore").write_text("dist/\n", encoding="utf-8")
         run_kit("plug", str(self.repo), "--source", self.source)
