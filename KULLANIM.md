@@ -238,4 +238,4 @@ Kit takılıyken her oturuma yaklaşık 1.300 token eklenir (skill adları ve a�
 - Kit yalnız Claude Code'da çalışır. Codex bu paketleri görmez; Codex yalnız `AGENTS.md` dosyasını okur.
 - Skill'lerin devreye girmesi kesin değildir. Model seçer; superpowers bu seçimi güçlü biçimde zorlar ama garanti etmez. Kesin olması gereken kontrol CI'da durur.
 - Kit kendiliğinden güncellenmez. Yeni sürümü sen çekersin.
-- Kit Windows, macOS ve Linux için yazıldı ama yalnız Linux'ta sınandı. Windows'ta oturum başı hook'u Git for Windows ile gelen `bash`'i kullanır (superpowers ile aynı sarmalayıcı); `bash` bulunamazsa sessizce atlanır, kitin geri kalanı çalışır.
+- Kit Windows, macOS ve Linux için yazıldı. Betiğin ve oturum başı hook'unun testleri üç sistemde de CI'da geçiyor; Claude Code ile uçtan uca oturum yalnız Linux'ta denendi. Windows'ta oturum başı hook'u Git for Windows ile gelen `bash`'i kullanır (superpowers ile aynı sarmalayıcı); `bash` bulunamazsa sessizce atlanır, kitin geri kalanı çalışır.
